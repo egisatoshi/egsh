@@ -1,0 +1,105 @@
+-------------------
+THE EG SHELL (EGSH)
+-------------------
+
+Version
+-------
+
+This is the first version of the shell.  I think there is 
+no risk to install and use this software, though it's not 
+a good idea to use this shell as your login shell, yet.
+
+About EGSH
+----------
+
+'EG' of the "EGSH" derives from the main developer's name
+Egi, and the English word 'easy'. I am implementing the shell 
+tring to make it as simple as passible.
+
+Installing EGSH
+---------------
+
+You can install and use this shell by just following 4 commands.
+
+% tar xvzf ./egsh.tar.gz
+% cd egsh
+% make
+% ./egsh
+
+Removing EGSH
+-------------
+
+What you do is only to remove the directory of egsh.
+
+% rm -r egsh
+
+Features
+--------
+This shell is too weak to have a practical use. I'll keep to 
+improve the shell. 
+
+Implemented Features:
+
+- Redirect
+
+You can execute commands like a following one.
+
+% cat text > copytext
+
+- Pipeline
+
+You can execute commnds like a following one.
+
+% ls | grep .c | less
+
+Of course, you can do commands like a following, too.
+
+% ls | grep .c | less > output
+
+- Job Controll
+
+You can suspend the process by pressing Ctr-z, see the 
+job list by 'jobs' command, restart the process in the 
+forground by 'fg', and in the background by 'bg'. You
+can run the process in the background by adding '&' at 
+the tail of the command.
+
+Example:
+% sleep 5
+Ctr-z
+19519	SUSPENDED[18]
+% sleep 4
+Ctr-z
+19521	SUSPENDED[18]
+% sleep 6 &
+% jobs
+PGRP	STATE		CMD
+19519	suspended	sleep
+19521	suspended	sleep
+19523	running  	sleep
+% bg 19521
+% jobs
+% fg 19519 //wait few seconds...
+19523	DONE
+19521	DONE
+1952	DONE
+% jobs
+%
+
+Not Implemented Features:
+
+The shell will support these features in next 
+versions.
+
+- Shell Scripting
+
+- Editing Commandline
+
+- History
+
+- Complementation by Tab key
+
+Developers List
+---------------
+
+Egi Satoshi
